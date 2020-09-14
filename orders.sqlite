@@ -1,0 +1,54 @@
+ SELECT *
+ FROM orders
+ LIMIT 10;
+
+ --column names are id, user_id, order_date, restaurant_id, item_name, special_instructions
+
+SELECT DISTINCT order_date
+FROM orders;
+
+--data is from the year 2017
+
+SELECT special_instructions
+FROM orders
+LIMIT 20;
+
+--20 entries from the special instructions column
+
+SELECT special_instructions
+FROM orders
+WHERE special_instructions IS NOT NULL;
+
+--Special instructions data
+
+SELECT special_instructions
+FROM orders
+WHERE special_instructions IS NOT NULL 
+ORDER BY special_instructions ASC;
+
+--special instructions in alphabetical order
+
+SELECT special_instructions
+FROM orders
+WHERE special_instructions LIKE '%sauce%';
+
+--special instructions with sauce
+
+SELECT special_instructions
+FROM orders
+WHERE special_instructions LIKE '%door%';
+
+--special instructions including 'door'
+
+SELECT special_instructions
+FROM orders
+WHERE special_instructions LIKE '%box%';
+
+--special instructions including 'box'
+
+SELECT id AS '#',
+ special_instructions AS 'Notes'
+FROM orders
+WHERE special_instructions LIKE '%box%';
+
+--returns id and special instructions as '#' and 'Notes' in rows containing box
